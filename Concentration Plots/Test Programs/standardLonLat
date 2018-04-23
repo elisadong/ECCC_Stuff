@@ -1,0 +1,4 @@
+def standardizeLonLat(lon,lat):
+  if lon > 180:
+    lon=lon-180
+  else:
