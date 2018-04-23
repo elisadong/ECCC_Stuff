@@ -1,0 +1,90 @@
+List of functions:
+Plume analysis related functions:
+- preMINX
+used to download files to process using MINX4. This can be done manually, but is rather tedious. A list of download products can be found on <nolan's wiki>
+- postMINX
+contains plume class details. Allows for adding model and CALIOP information if a path is provided to the correct fst or vfm(?) files. Also contains several statistical and plotting methods for individual plumes. Elisa used primarily to pickle plume objects to save time when retrieving in the future (retrieving model plume heights is somewhat time consuming) and to get results for individual plumes
+- plumeAnalysis.py
+key process is 'processPlume' function. Uses postMINX to return dictionaries of plumes, and further broken down results - dictionaries by fuel and biome, and lists of heights and distances. Includes functions for plotting or applying statistics to the processPlume results.
+- niceUtilities.py
+useful functions that are required for plumeAnalysis.py to work, but are not directly related to plumes so are in a separate program.
+- loopSpeedMINX.py
+an older version of plumeAnalysis.py. Programs using this may not have the same behaviour when switching over to the newer function.
+- speedyAltMINXdemo.py
+contains some functions that are now in plumeAnalysis.py and niceUtilities.py. Programs using this should not have any issue switching over to niceUtilities and plumeAnalysis where appropriate (check to see where the functions now are).
+- 20kmPlmAlys.py
+example of functions used to take a look at certain plumes in CFFEPS that had plume model heights over 20000m
+- check20kplms.py
+an excessively long program that was used to plot out the locations of the CFFEPS plumes that had model plume heights over 20000km. Also uses the 'loopSpeedMINX.py' function
+- caseStudyPlms.py
+example of looking at specific plumes and using plumeAnalysis.py
+- binPercentiles.py
+complete script used for most of the results in elisa's report. Note that this is depreciated and you should look to exBinPercentiles.py for more up to date commands
+- exBinPercentiles.py
+shares the same functionality as binPercentiles.py. Uses plumeAnalysis and niceUtilities to produce a series of plots and statistics. Can use this function to set up some defaults (plumePath, picklePath, threshVal, startTime, etc). Remember to update the calls to plumeAnalysis as needed!
+- plmStatsbyDistance.py
+example of getting statistics for plumes by distance breakdown. Now incorporated into plumeAnalysis
+- plmTimeSeries.py
+used to plot time series of origin points, average(median height, unsure if this is the best representation), and last points (originally I thought this might be the farthest pointm but I haven't checked). Recommended only to use for origin points.
+- preMINXalt.py
+to be updated. Using existing preMINX functions to save all files that need to be downloaded. May run into some issues based on sequence of processing. Appears to have some dependencies (some things must be downloaded for program to know what other files must be downloaded)
+- pltFuels.py
+used to plot the canfuels map. Was primarily a check to see if the orientation of the array retrieved from the hdf file were correct. Currently does not have functionality to plot specific points on top of the canfuels map. This may be a bug with matplotlib or basemap.
+- addCAL.py
+currently in the works. End result will likely not allow you to directly add to the plume object, but will contain a series of commands that can allow you to retrieve the CALIOP data for a given time/area from the initial FIRECAL_intersect.py function.
+- matchHotSpot.py
+saves stats based on CFFEPS outputs (zplumes primarily) and points in plumes. Used to see what is fed into the GEMMACH based on the CFFEPS model and if these cloesly match any of the points in a plume. NOTE: was written back when dealing with only sept1-15 plumes
+- outputBreakdown.py
+taking a better look at the CFFEPS outputs for date range sept1-15, especially by fuel type. Used for when looking at trends in CFFEPS outputs. Not directly related to MINX stuff, but useful for looking at how CFFEPS models plumes over time.
+
+# list of functions used to clean fire pixels by percentile, confidence level, and those of nonCanadian origin. Results may vary (most of these were killed, but the core functionality should work). The shapefile was downloaded from statsCan.
+
+- cleanFirePix.py
+the original function meant to deal with percentiles and confidence level. This will update ALL of the files without saving copies, so I recommend you copy all the original FirePixel files (you get these by running preMINX) to a working directory where you can update them. When using MINX4, you can load firePixels from this directory instead of the original downloaded files. The only function I would recommend using from this is the cleanPercentiles function (also includes cleaning by confidence level).
+NOTE: This function predates knowledge of wanting only Canadian fires. Recommended changes include adding an initial check (see other clean functions) to see if it's in Canada, THEN proceeding with the percentiles and confidence level cleaning. This way the percentiles have some kind of meaning.
+- cleanCtryPnd.py
+uses pandas (dataframes) to look at all hotspots at the same time and determine if they are in the Canada provinces polygons. Copies and saves cleaned firePixel text files to a saveDir. If the filename already exists in the saveDir, will skip over that filename from the original firePixel directory.
+- cleanCtryPndLoop.py
+older variant on cleanCtryPnd. Does not have any checking to see if the filename already exists in the saveDir.
+- cleanFPbyFuel.py
+cleans FirePixel files by fuel type. Elisa's recommended way of removing non-canadian hotspots, where hotspots that are not of fuel type listed in fuelType are removed. Has additional check to see which hotspots were removed by plotting them on a map.
+
+rebinning certain species into 12 categories from 2:
+- bin12.py
+adjusts the way emissions are binned in an FST file. Note that there are some unresolved issues (ex. layers not being saved). Reason for issues is currently undetermined. To use, make a copy of the file you want to work with and apply the script to the file you want changed. Jack has a script that does the same thing (without the errors), so recommended to use his script.
+- rebin.py
+older version of bin12.py
+
+Concentration/Difference plots:
+- these are pretty well documented on the wiki
+- essentially, they plot concentrations or difference between two different models for a given list of chemical species.
+- Also included is a function to only plot concentrations of a given lon/lat range. Useful for when plotting the entire world and you only want to see part of it
+- An inset also exists to zoom in on a given lon/lat range while plotting the entire map behind
+
+Adding PM2.5 values:
+- addPM.py
+doctors in a AF or AC levels for a given FST file.
+- addPMLoop.py
+same as addPM.py, but applies it to all FST files in a folder. Recommended that these are copies of the original FSTs.
+
+Mapping hotspots from a CSV to a .obs file:
+- HardHotSpotPlotter.py
+creates an OBS file from a CSV file (assuming has details on lon/lat/estarea)
+- HotSpotPlotter.py
+does the same thing in a slightly different manner (less clean to read)
+
+Retrieving species data for a list of stations (provided in text file):
+- StationSpcGet.py
+uses file containing station data (lon/lat/ID) and retrieves species data from model and observation. Results in csv
+- StationSpcGetModel.py
+retrieves model data for station locations. Saves results to a csv.
+- StationSpcGetObs.py
+retrieves observed values for station locations. Saves results to a csv.
+
+apply statistics to a sets of data.
+- statsProcesser.py
+contains some basic statistics used to compare two arrays. Designed to deal with comparison of two models after retrieving data for a given spc/ip1
+
+Vertical profiles:
+- described in wiki
+- essentially uses a lon/lat or an average of a provided range and species then plots a vertical profile. Can use the looping function to do several. 
