@@ -1,0 +1,73 @@
+Report Thing
+
+Introduction
+Goals
+This report reviews the results of GEMMACH with the operational FireWork and CFFEPS models and compares the two to MINX4 processed satellite retrieval data for fire plumes.
+Overall
+Results from FireWork show an overall underestimation of plume heights in the model with a Pearson correlation coefficient of 0.46 for the plumes in the 50th percentile. For the model plumes processed from CFFEPS, the Pearson Correlation is 0.18. Notably, 5 plumes were removed for the CFFEPS results as the model results indicated heights close to 20000m. Results for plumes greater than the 95th percentile, were similar to the 50th percentile. Majority of results will be discussed from the 95th and 98th percentile results except for certain breakdowns that do not have sufficient plumes to discuss.
+Plume Heights by Distance
+For paired points in plumes, the results from FireWork indicate there is a significant number of points from the resulting model plumes that are lower than the MINX plume distribution. The bin distribution of the plume heights, the shape of the histogram is more closely matched by the CFFEPS plume points. Note that the total number of points varies between the CFFEPS and FireWork plumes, as the models returned different points. NOTE: possibly include an illustration
+Both FireWork and CFFEPS plume height points are on average underestimating of the MINX plume results. For both models, the plume heights are underestimations of the MINX plume heights. Additionally, the underestimation is greater for points farther away from the origin of the digitized plumes.
+CFFEPS plume heights have greater number of overestimation than FireWork and can be seen up to ~50 km. For FireWork, the overestimation is to 30km. Both models have overestimation close to the origin of the digitized plumes. CFFEPS has a greater overestimation for the same plumes.
+A greater amount of underestimation is also present for the FireWork results.
+#Breakdown by distance. Plumes modelled by FireWork showed that near the origin of the plumes, the heights were significantly higher <include order of magnitude> than the digitized plumes. At distances greater than <>, the plume heights were underestimated by <>. <CFFEPS>
+
+Breakdown by Biome
+
+
+#Breakdown by fuel. For fuels <>, <hopefully have some results on this>.
+
+Process
+1. Download appropriate files for digitization
+
+Definitions/Glossary/Appendix
+Fire plume
+Fire plume (model) - determined by matching the coordinates of a plume digitized using MINX software from MISR and MODIS retrievals. The coordinates and  are matched up to a corresponding FTP file (or two, in the case of FW/CFFEPS - base GEMMACH) with the GEMMACH results
+MINX / MINX4 - software that can digitize MODIS and MISR satellite retrievals. Upon loading MISR satellite imagery, MODIS hotspots can be overlain to find fires. Fire plumes are then manually digitized and saved as plume objects in text files and a series of images associated with the plume are also saved.
+## Also filtered by country, downloaded canada shapefile from statscan? filtered out if not in any of the provinces
+
+# https://en.wikipedia.org/wiki/GRS_80
+(py2-1.0) eccc1-ppp1:~/eld001/MINX/canfuels/canfuels/bns2013$ gdalinfo vat.adf
+Driver: AIG/Arc/Info Binary Grid
+Files: .
+       ./dblbnd.adf
+       ./w001001x.adf
+       ./hdr.adf
+       ./w001001.adf
+       ./vat.adf
+       ./prj.adf
+       ./test.txt
+       ./sta.adf
+       ./test.csv
+Size is 21404, 18233
+Coordinate System is:
+PROJCS["unnamed",
+    GEOGCS["Unknown datum based upon the GRS 1980 ellipsoid",
+        DATUM["Not_specified_based_on_GRS_1980_ellipsoid",
+            SPHEROID["GRS 1980",6378137,298.257222101,
+                AUTHORITY["EPSG","7019"]],
+            AUTHORITY["EPSG","6019"]],
+        PRIMEM["Greenwich",0,
+            AUTHORITY["EPSG","8901"]],
+        UNIT["degree",0.0174532925199433,
+            AUTHORITY["EPSG","9122"]],
+        AUTHORITY["EPSG","4019"]],
+    PROJECTION["Lambert_Conformal_Conic_2SP"],
+    PARAMETER["standard_parallel_1",49],
+    PARAMETER["standard_parallel_2",77],
+    PARAMETER["latitude_of_origin",49],
+    PARAMETER["central_meridian",-95],
+    PARAMETER["false_easting",0],
+    PARAMETER["false_northing",0],
+    UNIT["METERS",1]]
+Origin = (-2341249.999999993480742,3833423.977366650477052)
+Pixel Size = (250.000000000000000,-250.000000000000000)
+Corner Coordinates:
+Upper Left  (-2341250.000, 3833423.977) (173d27'57.29"W, 68d57'21.36"N)
+Lower Left  (-2341250.000, -724826.023) (121d 6'43.23"W, 38d21'27.59"N)
+Upper Right ( 3009750.000, 3833423.977) ( 12d 1'16.36"W, 63d 3'11.02"N)
+Lower Right ( 3009750.000, -724826.023) ( 62d33' 8.04"W, 35d50'20.30"N)
+Center      (  334250.000, 1554298.977) ( 88d10' 4.60"W, 63d 4'11.21"N)
+Band 1 Block=256x4 Type=Byte, ColorInterp=Undefined
+  Min=101.000 Max=122.000
+  NoData Value=255

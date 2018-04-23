@@ -1,0 +1,97 @@
+Write up for the following cases:
+Date Range: Sept 1-15, 2017
+Threshold: 25
+Cases: p85c50, p85c60, p90c60, p90c60lines
+
+Key Values on cases (in order of cases, for all plumes processed):
+Number of Plumes: 22, 19, 14, 19
+Number of Valid Pairs: 71, 71 ,50, 38
+Correlation Coefficient: -0.43672301707990985, -0.43672301707990985, -0.60737306342113029, -0.52646302924341892
+
+Comment: Correlation coefficient appears to improve for plumes of higher FRP
+Note: The total number of points plotted varies quite a bit between cases
+Note: The number of Valid Pairs for the p85 case is the same, though total number of plumes decreased - not a big loss going from c50 to c60
+
+Comment: Plume heights correspond more closely to 1:1 line at MINX Plume Height > ~2000m
+Note: Most deviation from 1:1 line is in the case of extremely low MINX Plume Height whereas the Model Plume shows larger values (varying, but almost always greater than the MINX heights) - may be that MINX results are wrong (check values closer to origin)
+Note: More scattering of points is visible in the p85 cases - may be more Valid Points (more to plot)
+Note: More red band plumes were plotted - likely due to greater number of red band plumes overall, but may indicate that the blue band plume results may be off (p90 cases show no blue band plumes after 'cleaning')
+
+Comment: Model Plume Heights were largely determined by AF values of range [25-100]
+Note: A secondary peak of AF values is found in range [250-425]
+Note: the p90c60lines case shows a larger spread of AF values used for Model Height determination
+
+Comment: Plume FRP ranges from [0-3000] for the cases p85c50, p85c60, p90c60, where FRP = Total Fire Power (MWatts)
+Note: Range of [50-2500] for case p90c60 - may be due to more strict choice of hotspots
+Note: Range of [0-0.1] for case p90c60lines - may be due to digitization using lines
+
+General Results:
+- For model height values returned, more of these values are found near the tail end of the corresponding MINX plume
+- When the model heights follow a similar shape of the MINX plume, these values are often much lower or higher MINX plume
+- The model has a tendency to be very flat
+- p85 seems to produce a good number of pairs, may stick with this value for future test cases
+
+Possible Changes to test (strictly MINX and Model plume comparisons):
+- more dramatic differences in p/c levels
+- eliminate height values for extremely close distances (<2km from origin), note that plots may stay the same
+- larger radius, check whether or not the model location is actually correct, lots of values are being dropped so can't confirm plume shape is correct
+NOTE: sometimes not getting plotted values for MINX plume heights, should probably take a better look at these as well
+NOTE: the overlap in the p85 cases may be due in part of copying over all of the p85c60 plumes into p85c50, wiping out some potentially unique plumes processed earlier in p85c50
+
+Go back and check these:
+P85 C50:
+A pretty bad match up
+https://hpfx.science.gc.ca/~eld001/MINXResults/sept_01_15/p85_c50/thresh25/postAltOutputs/O094284-B042-SPWR02_HighRes/Mod_O094284-B042-SPWR02scatter_2D.png
+Model much higher
+https://hpfx.science.gc.ca/~eld001/MINXResults/sept_01_15/p85_c50/thresh25/postAltOutputs/O094298-B046-SPWR01_HighRes/Mod_O094298-B046-SPWR01scatter_3D.png
+Similar shape, need to redo scatter_2D
+https://hpfx.science.gc.ca/~eld001/MINXResults/sept_01_15/p85_c50/thresh25/postAltOutputs/O094298-B046-SPWR02_HighRes/Mod_O094298-B046-SPWR02scatter_3D.png
+Odd case
+https://hpfx.science.gc.ca/~eld001/MINXResults/sept_01_15/p85_c50/thresh25/postAltOutputs/O094298-B046-SPWR03_HighRes/Mod_O094298-B046-SPWR03poly_2D.png
+Lots of points to look at
+https://hpfx.science.gc.ca/~eld001/MINXResults/sept_01_15/p85_c50/thresh25/postAltOutputs/O094298-B046-SPWR04_HighRes/Mod_O094298-B046-SPWR04scatter_3D.png
+model lower, similar shape
+https://hpfx.science.gc.ca/~eld001/MINXResults/sept_01_15/p85_c50/thresh25/postAltOutputs/O094342-B051-SPWR02_HighRes/Mod_O094342-B051-SPWR02scatter_2D.png
+https://hpfx.science.gc.ca/~eld001/MINXResults/sept_01_15/p85_c50/thresh25/postAltOutputs/O094342-B051-SPWR03_HighRes/Mod_O094342-B051-SPWR03scatter_2D.png
+interspersed
+https://hpfx.science.gc.ca/~eld001/MINXResults/sept_01_15/p85_c50/thresh25/postAltOutputs/O094342-B052-SPWB01_HighRes/Mod_O094342-B052-SPWB01scatter_2D.png
+This one is pretty close
+https://hpfx.science.gc.ca/~eld001/MINXResults/sept_01_15/p85_c50/thresh25/postAltOutputs/O094342-B052-SPWR02_HighRes/Mod_O094342-B052-SPWR02scatter_2D.png
+
+P85 C60:
+tail similar
+https://hpfx.science.gc.ca/~eld001/MINXResults/sept_01_15/p85_c60/thresh25/postAltOutputs/O094182-B051-SPWR01_HighRes/Mod_O094182-B051-SPWR01scatter_2D.png
+model much heigher
+https://hpfx.science.gc.ca/~eld001/MINXResults/sept_01_15/p85_c60/thresh25/postAltOutputs/O094298-B046-SPWR01_HighRes/Mod_O094298-B046-SPWR01scatter_3D.png
+https://hpfx.science.gc.ca/~eld001/MINXResults/sept_01_15/p85_c60/thresh25/postAltOutputs/O094298-B046-SPWR02_HighRes/Mod_O094298-B046-SPWR02scatter_3D.png
+LOTS OF POINTS MATCHED
+https://hpfx.science.gc.ca/~eld001/MINXResults/sept_01_15/p85_c60/thresh25/postAltOutputs/O094298-B046-SPWR04_HighRes/Mod_O094298-B046-SPWR04scatter_3D.png
+model lower
+https://hpfx.science.gc.ca/~eld001/MINXResults/sept_01_15/p85_c60/thresh25/postAltOutputs/O094342-B051-SPWR02_HighRes/Mod_O094342-B051-SPWR02scatter_2D.png
+Oddly close to the ground
+https://hpfx.science.gc.ca/~eld001/MINXResults/sept_01_15/p85_c60/thresh25/postAltOutputs/O094342-B051-SPWR03_HighRes/Mod_O094342-B051-SPWR03scatter_2D.png
+interspersed values
+https://hpfx.science.gc.ca/~eld001/MINXResults/sept_01_15/p85_c60/thresh25/postAltOutputs/O094342-B052-SPWB01_HighRes/Mod_O094342-B052-SPWB01scatter_2D.png
+https://hpfx.science.gc.ca/~eld001/MINXResults/sept_01_15/p85_c60/thresh25/postAltOutputs/O094342-B052-SPWR02_HighRes/Mod_O094342-B052-SPWR02scatter_3D.png
+
+P90 C60:
+flat model:
+https://hpfx.science.gc.ca/~eld001/MINXResults/sept_01_15/p90_c60/thresh25/postAltOutputs/O094182-B051-SPWR01_HighRes/Mod_O094182-B051-SPWR01scatter_2D.png
+Same shape, model > minx
+https://hpfx.science.gc.ca/~eld001/MINXResults/sept_01_15/p90_c60/thresh25/postAltOutputs/O094298-B046-SPWR02_HighRes/Mod_O094298-B046-SPWR02surface_plot.png
+model < minx
+https://hpfx.science.gc.ca/~eld001/MINXResults/sept_01_15/p90_c60/thresh25/postAltOutputs/O094342-B051-SPWR03_HighRes/Mod_O094342-B051-SPWR03scatter_2D.png
+similar shape, model < minx
+https://hpfx.science.gc.ca/~eld001/MINXResults/sept_01_15/p90_c60/thresh25/postAltOutputs/O094342-B051-SPWR04_HighRes/Mod_O094342-B051-SPWR04scatter_2D.png
+
+P90 C60 Lines:
+Tail values very similar
+https://hpfx.science.gc.ca/~eld001/MINXResults/sept_01_15/p90_c60_lines/thresh25/postAltOutputs/O094182-B051-SLWR01_HighRes/Mod_O094182-B051-SLWR01scatter_2D.png
+Flat model plume, present for entire plume length
+https://hpfx.science.gc.ca/~eld001/MINXResults/sept_01_15/p90_c60_lines/thresh25/postAltOutputs/O094240-B053-SLWR01_HighRes/Mod_O094240-B053-SLWR01scatter_2D.png
+Curved Minx line plots as flat model plume
+https://hpfx.science.gc.ca/~eld001/MINXResults/sept_01_15/p90_c60_lines/thresh25/postAltOutputs/O094240-B053-SLWR02_HighRes/Mod_O094240-B053-SLWR02scatter_2D.png
+Model much higher, same shape
+https://hpfx.science.gc.ca/~eld001/MINXResults/sept_01_15/p90_c60_lines/thresh25/postAltOutputs/O094298-B046-SLWR01_HighRes/Mod_O094298-B046-SLWR01surface_plot.png
+More flat models
+https://hpfx.science.gc.ca/~eld001/MINXResults/sept_01_15/p90_c60_lines/thresh25/postAltOutputs/O094342-B051-SLWR03_HighRes/Mod_O094342-B051-SLWR03scatter_2D.png

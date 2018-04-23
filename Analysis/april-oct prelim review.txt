@@ -1,0 +1,159 @@
+MINX and Model comparison results
+
+Write up for the following cases:
+Date Range: April 1 - October 31, 2017
+Threshold: 0 (maybe this should be higher)
+Plumes Digitized: p50c60, only Fair/Good plumes were retained
+Cases: CFFEPS high res, CFFEPS low res, FireWork-GEMMACH low res
+Sub-Cases:
+- by percentile: p50c60, p80c60, p90c60
+- by distance from source: 5, 10, 20, 30+ # this may need to be adjusted based on the plumes that are digitized
+MINX Details:
+Matcher: Small matcher
+Red/Blue Band: user selected
+Line/Polygon: user selected
+Notes: Some plumes were unable to be digitized. This includes cases of:
+- wind direction was opposite the along track direction
+- plume was too thin (both red and blue band unable to digitize to level of Fair or Good)
+- plume was too bright?? In the AN camera, plumes showed no visible features other than a bright white cloud
+- plumes over valleys/changing topography. These usually resulted in Poor plumes
+Note on Digitization results:
+
+Goal: Compare results for CFFEPS/MINX (start time = 12) and FireWork/MINX (start time = 00)
+Breakdowns: Month, percentile of plumes, distance from source
+Caveats: Due to distance breakdown, only digitized 'straight' plumes (ie. wind direction was consistent along the plume for the digitized portions) #does this even make sense? and is it covered by what can be digitized by MINX?
+
+Functions Used:
+
+Key Changes since previous Analysis:
+- larger dataset (time, firepower allowance, further distances from source)
+- removal of anthropogenic sources
+- binning results by percentiles, distances
+- Threshold was set to accommodate removal of anthropogenic sources
+
+Expect to see:
+- decrease in number of possible points found in model plume further away from the source
+- steps in the model height (due to low resolution)
+- more variation far from plume origin for CFFEPS results due to initial variation at origin
+
+Key Values for cases:
+General
+CFFEPS
+FireWork (12 hour and 00 hour start time)
+
+By Percentile
+CFFEPS
+FireWork
+
+By Distance
+CFFEPS
+FireWork
+
+General observations from the high resolution CFFEPS cases:
+
+Quick comparison to high resolution CFFEPS cases with no anthro sources removed:
+
+Comparisons between the low resolution CFFEPS and FireWork-GEMMACH cases:
+
+
+FireWork-GEMMACH case:
+Note on percentiles:
+- Using 98 percentile is a reasonable represenation of the MINX results. Includes roughly half of the plumes that would have been picked up by the 50th percentiles (see FW-GM case). When going to 99.9 percentile, cleans out a lot of potentially import trends. Otherwise, increasing percentile does not noticeably improve the overall result.
+
+Note on AF values:
+- Values picked up that represent the model plume are less than 100ppm, definitely less than 500 (check?). When looking at less than 99.9 percentile, can go up to the thousands.
+
+Note on model accuracy:
+- General underestimation. Exceptions extremely close to the fire origin where there is a cluster of over near source (may just be a couple of plumes that indicate high plume heights and the MINX results do not detect this, or the models may be off for some cases).
+- For breakdown by month, used the P95 since there are few enough points to distinguish in the graphs. April and May do not have sufficient plumes to show details. In June, there is extreme underestimation (P95) except at close to the origin, with some overestimation. In July, most of these are also underestimation (P95), with some overestimation at the 40-60km distance from the origin. Same with August, some overestimation around 0-30 km, and 50-70km . In Sept, lots of overestimation sub 20km. Oct has an overestimation at 0-20km, and 50-60km. Otherwise underestimation.
+- This is also seen in the april-october distanceRatio plot in the P98, from 0-30km and 50-60km there is some overestimation, but the majority is an underestimation from 0-140km. For the P99.9 case, the overestimation is only seen at less than 30km away from the origin.
+
+
+Additional:
+- Plotting by biome, match up to results in the hotspot analysis from the CSVs
+
+C1 - Spruce-Lichen Woodland, Savanna, Woody Savanna
+C2 - Boreal Spruce, Evergreen Needleleaf
+C3 - Mature Jack or Lodgepole Pine, Closed Shrublands, Evergreen Needleleaf
+C4 - Immature Jack or Lodgepole Pine, Closed Shrublands, Evergreen Needleleaf
+C5 - Red and White Pine, Mixed Forest
+C6 - Conifer Plantation, Evergreen Needleleaf
+C7 - Ponderosa Pine-Douglas Fir, Open Shrublands, Woody Savannas
+D1 - Leafless Aspen, Deciduous Needleleaf, Woody Savanna
+M1 - Boreal Mixedwood-Leafless, Mixed Forest
+O1(a) - Grass
+NF, non
+
+Evergreen Needleleaf (C2, C3, C4, C6):
+Up to 5 times near origin.
+Spikes at 10-20 and 60-60km from the origin.
+Otherwise generally underestimation, at 0.5 times.
+
+Grasslands (O1, O1a):
+Mostly underestimation, at 0.5 times.
+More spread around origin (0-30km).
+
+Mixed Forest (C5, M1):
+Mostly underestimation.
+More similar to MINX with increasing distance
+overestimation spike at 60km.
+
+Open Shrublands (C7):
+Spread of similarity (distinct plumes here).
+Lots of scatter around the 3-5 time, but all range less than 40km.
+Spike around 0-20 km of overestimation.
+
+Savannas (C1):
+Lots of underestimation (mostly less than 0.5).
+Spikes of overestimation at 0-10km and 20-30km.
+
+Woody Savannas (C1, C7, D1):
+Lots of underestimation (mostly less than 0.5, more underestimation further away from origin).
+Spikes of overestimation at 0-10km.
+
+September results:
+C1 Zplumes are around 10000, may explain the overestimation near origin. Though Model Heights only go to 5000m (immediate origin skipped?)
+C2 Zplumes are scattered, around 3000 to 10000m. May explain some overestimation near origin. Model Heights only go to 4000m
+C3 Zplumes are scattered, around 2000 to 11000m.
+C4 Zplumes, insufficient info
+C5 Zplumes, insufficient info
+C7 Zplumes, insufficient info
+D1 Zplumes are scattered, around 3000 to 11000m.
+M1 Zplumes are scattered, around 2000 to 11000m.
+O1 Zplumes are scattered, around 2000 to 11000m. More dense at lower zplumes than other fuel types. Note that the Model and Minx plume heights are distributed for grasslands.
+
+# Appendix
+Biome IGBP name, class
+        One of 18 biome types from the MODIS IGBP classification found in the MCD12C1 product.
+
+Class	IGBP (Type 1)
+0	Water
+1	Evergreen Needleleaf forest
+2	Evergreen Broadleaf forest
+3	Deciduous Needleleaf forest
+4	Deciduous Broadleaf forest
+5	Mixed forest
+6	Closed shrublands
+7	Open shrublands
+8	Woody savannas
+9	Savannas
+10	Grasslands
+11	Permanent wetlands
+12	Croplands
+13	Urban and built-up
+14	Cropland/Natural vegetation mosaic
+15	Snow and ice
+16	Barren or sparsely vegetated
+254	Unclassified
+255	Fill Value
+
+A savanna or savannah is a mixed woodland grassland ecosystem characterised by the trees being sufficiently widely spaced so that the canopy does not close. The open canopy allows sufficient light to reach the ground to support an unbroken herbaceous layer consisting primarily of grasses.
+
+Evergreens include:
+
+most species of conifers (e.g., pine, hemlock, blue spruce, red cedar, and white/scots/jack pine), but not all (e.g., larch)
+live oak, holly, and "ancient" gymnosperms such as cycads
+most angiosperms from frost-free climates, such as eucalypts and rainforest trees
+clubmosses and relatives
+
+In the Northern hemisphere, characteristic dominant broadleaf trees in this biome include oaks (Quercus spp.), beeches (Fagus spp.), maples (Acer spp.), or birches (Betula spp.).[2] The term "mixed forest" comes from the inclusion of coniferous trees as a canopy component of some of these forests. Typical coniferous trees include: Pines (Pinus spp.), firs (Abies spp.), and spruces (Picea spp.).
