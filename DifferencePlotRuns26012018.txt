@@ -1,0 +1,53 @@
+scripts run:
+
+need: minmax to be equal
+run GEMMACH_dev for 2010071000_048 against:
+adomKPPKPPB_KPP
+adomKPPKPPB_KPPB
+adomKPPKPPB_KPPBmsy
+adomKPPKPPB_adomYB
+adomKPPKPPB_adomYBmsy
+
+Run to gauge the minmax values
+python LoopingDiffPlotter.py 'FST_files/GEMMACH_dev/20100710000000/model/' "['FST_files/adomKPPKPPB_KPP/20100710000000/model/','FST_files/adomKPPKPPB_KPPB/20100710000000/model/', 'FST_files/adomKPPKPPB_KPPBmsy/20100710000000/model/']" "['adomKPP-GEM', 'adomKPPB-GEM', 'adomKPPBmsy-GEM']" "{'ip1':95360636, 'spc': ['TO3','TNO','TNO2','TOH','THCH','TCO','THN2','THN3','AL','AF','TH22','HCHO','HNO3'], 'rev': True, 'cmap': 'RdBu', 'extScale':'neither', 'projection':'stere'}"
+
+python LoopingDiffPlotter.py 'FST_files/GEMMACH_dev/20100710000000/model/' "['FST_files/adomKPPKPPB_KPP/20100710000000/model/','FST_files/adomKPPKPPB_KPPB/20100710000000/model/', 'FST_files/adomKPPKPPB_KPPBmsy/20100710000000/model/']" "['adomKPP-GEM', 'adomKPPB-GEM', 'adomKPPBmsy-GEM']" "{'ip1':76696048, 'spc': ['TO3','TNO','TNO2','TOH','THCH','TCO','THN2','THN3','AL','AF','TH22','HCHO','HNO3'], 'rev': True, 'cmap': 'RdBu', 'extScale':'neither', 'projection':'stere'}"
+
+python LoopingDiffPlotter.py 'FST_files/GEMMACH_dev/20100710000000/model/' "['FST_files/adomKPPKPPB_adomYB/20100710000000/model/','FST_files/adomKPPKPPB_adomYBmsy/20100710000000/model/']" "['adomYB-GEM', 'adomYBmsy-GEM']" "{'ip1':94576580, 'spc': ['TO3','TNO','TNO2','TOH','THCH','TCO','THN2','THN3','AL','AF','TH22','HCHO','HNO3'], 'rev': True, 'cmap': 'RdBu', 'extScale':'neither', 'projection':'stere'}"
+
+ACtual Runs:
+note that THN2, AL, HCHO,HNO3 didn't show up anywhere
+ip1:95360636 76696048 94576580
+
+minmax:0.0002
+python LoopingDiffPlotter.py 'FST_files/GEMMACH_dev/20100710000000/model/' "['FST_files/adomKPPKPPB_KPP/20100710000000/model/','FST_files/adomKPPKPPB_KPPB/20100710000000/model/', 'FST_files/adomKPPKPPB_KPPBmsy/20100710000000/model/','FST_files/adomKPPKPPB_adomYB/20100710000000/model/','FST_files/adomKPPKPPB_adomYBmsy/20100710000000/model/']" "['adomKPP-GEM', 'adomKPPB-GEM', 'adomKPPBmsy-GEM','adomYB-GEM', 'adomYBmsy-GEM']" "{'ip1':95360636, 'spc': ['TOH'], 'rev': True, 'cmap': 'RdBu', 'extScale':'both', 'projection':'stere', 'minVal':-0.0002,'maxVal':0.0002}"
+
+python LoopingDiffPlotter.py 'FST_files/GEMMACH_dev/20100710000000/model/' "['FST_files/adomKPPKPPB_KPP/20100710000000/model/','FST_files/adomKPPKPPB_KPPB/20100710000000/model/', 'FST_files/adomKPPKPPB_KPPBmsy/20100710000000/model/','FST_files/adomKPPKPPB_adomYB/20100710000000/model/','FST_files/adomKPPKPPB_adomYBmsy/20100710000000/model/']" "['adomKPP-GEM', 'adomKPPB-GEM', 'adomKPPBmsy-GEM','adomYB-GEM', 'adomYBmsy-GEM']" "{'ip1':76696048, 'spc': ['TOH'], 'rev': True, 'cmap': 'RdBu', 'extScale':'both', 'projection':'stere', 'minVal':-0.0002,'maxVal':0.0002}"
+
+python LoopingDiffPlotter.py 'FST_files/GEMMACH_dev/20100710000000/model/' "['FST_files/adomKPPKPPB_KPP/20100710000000/model/','FST_files/adomKPPKPPB_KPPB/20100710000000/model/', 'FST_files/adomKPPKPPB_KPPBmsy/20100710000000/model/','FST_files/adomKPPKPPB_adomYB/20100710000000/model/','FST_files/adomKPPKPPB_adomYBmsy/20100710000000/model/']" "['adomKPP-GEM', 'adomKPPB-GEM', 'adomKPPBmsy-GEM','adomYB-GEM', 'adomYBmsy-GEM']" "{'ip1':94576580, 'spc': ['TOH'], 'rev': True, 'cmap': 'RdBu', 'extScale':'both', 'projection':'stere', 'minVal':-0.0002,'maxVal':0.0002}"
+
+minmax: 0.5
+
+python LoopingDiffPlotter.py 'FST_files/GEMMACH_dev/20100710000000/model/' "['FST_files/adomKPPKPPB_KPP/20100710000000/model/','FST_files/adomKPPKPPB_KPPB/20100710000000/model/', 'FST_files/adomKPPKPPB_KPPBmsy/20100710000000/model/','FST_files/adomKPPKPPB_adomYB/20100710000000/model/','FST_files/adomKPPKPPB_adomYBmsy/20100710000000/model/']" "['adomKPP-GEM', 'adomKPPB-GEM', 'adomKPPBmsy-GEM','adomYB-GEM', 'adomYBmsy-GEM']" "{'ip1':95360636, 'spc': ['TNO','TH22','TNO2','THN3','THCH','AF','THN2','AL','HCHO','HNO3'], 'rev': True, 'cmap': 'RdBu', 'extScale':'both', 'projection':'stere', 'minVal':-0.5,'maxVal':0.5}"
+
+python LoopingDiffPlotter.py 'FST_files/GEMMACH_dev/20100710000000/model/' "['FST_files/adomKPPKPPB_KPP/20100710000000/model/','FST_files/adomKPPKPPB_KPPB/20100710000000/model/', 'FST_files/adomKPPKPPB_KPPBmsy/20100710000000/model/','FST_files/adomKPPKPPB_adomYB/20100710000000/model/','FST_files/adomKPPKPPB_adomYBmsy/20100710000000/model/']" "['adomKPP-GEM', 'adomKPPB-GEM', 'adomKPPBmsy-GEM','adomYB-GEM', 'adomYBmsy-GEM']" "{'ip1':76696048, 'spc': ['TNO','TH22','TNO2','THN3','THCH','AF','THN2','AL','HCHO','HNO3'], 'rev': True, 'cmap': 'RdBu', 'extScale':'both', 'projection':'stere', 'minVal':-0.5,'maxVal':0.5}"
+
+python LoopingDiffPlotter.py 'FST_files/GEMMACH_dev/20100710000000/model/' "['FST_files/adomKPPKPPB_KPP/20100710000000/model/','FST_files/adomKPPKPPB_KPPB/20100710000000/model/', 'FST_files/adomKPPKPPB_KPPBmsy/20100710000000/model/','FST_files/adomKPPKPPB_adomYB/20100710000000/model/','FST_files/adomKPPKPPB_adomYBmsy/20100710000000/model/']" "['adomKPP-GEM', 'adomKPPB-GEM', 'adomKPPBmsy-GEM','adomYB-GEM', 'adomYBmsy-GEM']" "{'ip1':94576580, 'spc': ['TNO','TH22','TNO2','THN3','THCH','AF','THN2','AL','HCHO','HNO3'], 'rev': True, 'cmap': 'RdBu', 'extScale':'both', 'projection':'stere', 'minVal':-0.5,'maxVal':0.5}"
+
+minmax: 5
+
+python LoopingDiffPlotter.py 'FST_files/GEMMACH_dev/20100710000000/model/' "['FST_files/adomKPPKPPB_KPP/20100710000000/model/','FST_files/adomKPPKPPB_KPPB/20100710000000/model/', 'FST_files/adomKPPKPPB_KPPBmsy/20100710000000/model/','FST_files/adomKPPKPPB_adomYB/20100710000000/model/','FST_files/adomKPPKPPB_adomYBmsy/20100710000000/model/']" "['adomKPP-GEM', 'adomKPPB-GEM', 'adomKPPBmsy-GEM','adomYB-GEM', 'adomYBmsy-GEM']" "{'ip1':95360636, 'spc': ['TCO','AF'], 'rev': True, 'cmap': 'RdBu', 'extScale':'both', 'projection':'stere', 'minVal':-5,'maxVal':5}"
+
+python LoopingDiffPlotter.py 'FST_files/GEMMACH_dev/20100710000000/model/' "['FST_files/adomKPPKPPB_KPP/20100710000000/model/','FST_files/adomKPPKPPB_KPPB/20100710000000/model/', 'FST_files/adomKPPKPPB_KPPBmsy/20100710000000/model/','FST_files/adomKPPKPPB_adomYB/20100710000000/model/','FST_files/adomKPPKPPB_adomYBmsy/20100710000000/model/']" "['adomKPP-GEM', 'adomKPPB-GEM', 'adomKPPBmsy-GEM','adomYB-GEM', 'adomYBmsy-GEM']" "{'ip1':76696048, 'spc': ['TCO','AF'], 'rev': True, 'cmap': 'RdBu', 'extScale':'both', 'projection':'stere', 'minVal':-5,'maxVal':5}"
+
+python LoopingDiffPlotter.py 'FST_files/GEMMACH_dev/20100710000000/model/' "['FST_files/adomKPPKPPB_KPP/20100710000000/model/','FST_files/adomKPPKPPB_KPPB/20100710000000/model/', 'FST_files/adomKPPKPPB_KPPBmsy/20100710000000/model/','FST_files/adomKPPKPPB_adomYB/20100710000000/model/','FST_files/adomKPPKPPB_adomYBmsy/20100710000000/model/']" "['adomKPP-GEM', 'adomKPPB-GEM', 'adomKPPBmsy-GEM','adomYB-GEM', 'adomYBmsy-GEM']" "{'ip1':94576580, 'spc': ['TCO','AF'], 'rev': True, 'cmap': 'RdBu', 'extScale':'both', 'projection':'stere', 'minVal':-5,'maxVal':5}"
+
+minmax: 20
+
+python LoopingDiffPlotter.py 'FST_files/GEMMACH_dev/20100710000000/model/' "['FST_files/adomKPPKPPB_KPP/20100710000000/model/','FST_files/adomKPPKPPB_KPPB/20100710000000/model/', 'FST_files/adomKPPKPPB_KPPBmsy/20100710000000/model/','FST_files/adomKPPKPPB_adomYB/20100710000000/model/','FST_files/adomKPPKPPB_adomYBmsy/20100710000000/model/']" "['adomKPP-GEM', 'adomKPPB-GEM', 'adomKPPBmsy-GEM','adomYB-GEM', 'adomYBmsy-GEM']" "{'ip1':95360636, 'spc': ['TO3'], 'rev': True, 'cmap': 'RdBu', 'extScale':'both', 'projection':'stere', 'minVal':-20,'maxVal':20}"
+
+python LoopingDiffPlotter.py 'FST_files/GEMMACH_dev/20100710000000/model/' "['FST_files/adomKPPKPPB_KPP/20100710000000/model/','FST_files/adomKPPKPPB_KPPB/20100710000000/model/', 'FST_files/adomKPPKPPB_KPPBmsy/20100710000000/model/','FST_files/adomKPPKPPB_adomYB/20100710000000/model/','FST_files/adomKPPKPPB_adomYBmsy/20100710000000/model/']" "['adomKPP-GEM', 'adomKPPB-GEM', 'adomKPPBmsy-GEM','adomYB-GEM', 'adomYBmsy-GEM']" "{'ip1':76696048, 'spc': ['TO3'], 'rev': True, 'cmap': 'RdBu', 'extScale':'both', 'projection':'stere', 'minVal':-20,'maxVal':20}"
+
+python LoopingDiffPlotter.py 'FST_files/GEMMACH_dev/20100710000000/model/' "['FST_files/adomKPPKPPB_KPP/20100710000000/model/','FST_files/adomKPPKPPB_KPPB/20100710000000/model/', 'FST_files/adomKPPKPPB_KPPBmsy/20100710000000/model/','FST_files/adomKPPKPPB_adomYB/20100710000000/model/','FST_files/adomKPPKPPB_adomYBmsy/20100710000000/model/']" "['adomKPP-GEM', 'adomKPPB-GEM', 'adomKPPBmsy-GEM','adomYB-GEM', 'adomYBmsy-GEM']" "{'ip1':94576580, 'spc': ['TO3'], 'rev': True, 'cmap': 'RdBu', 'extScale':'both', 'projection':'stere', 'minVal':-20,'maxVal':20}"
+
+python LoopingDiffPlotter.py 'FST_files/GEMMACH_dev/20100710000000/model/' "['FST_files/adomKPPKPPB_KPP/20100710000000/model/','FST_files/adomKPPKPPB_KPPB/20100710000000/model/', 'FST_files/adomKPPKPPB_KPPBmsy/20100710000000/model/','FST_files/adomKPPKPPB_adomYB/20100710000000/model/','FST_files/adomKPPKPPB_adomYBmsy/20100710000000/model/']" "['adomKPP-GEM', 'adomKPPB-GEM', 'adomKPPBmsy-GEM','adomYB-GEM', 'adomYBmsy-GEM']" "{'ip1':76696048, 'spc': ['AF'], 'rev': True, 'cmap': 'RdBu', 'extScale':'both', 'projection':'stere', 'minVal':-0.5,'maxVal':0.5}"
